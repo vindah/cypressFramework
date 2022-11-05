@@ -18,5 +18,13 @@ class LoginPage{
     get botColumn(){
         return cy.get('.bot_column');
     }
+
+    get errorDisplay(){
+        return cy.get('[data-test="error"]');
+    }
+
+    get errorBtn(){
+        return cy.get('.error-button');
+    }
 }
 export default LoginPage;
