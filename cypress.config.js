@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  projectId: "hJqw5rq",
+  projectId: "wgnie7",
   chromeWebSecurity: false,
   pageLoadTimeout: 60000,
   watchForFileChanges: false,
@@ -18,3 +18,4 @@ module.exports = defineConfig({
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
   },
 });
+// npx cypress run --record --key c19b0be2-5a46-4c91-a3da-8b2eceef3bd4
