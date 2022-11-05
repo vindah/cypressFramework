@@ -1,0 +1,5 @@
+#ignore all files specified here.
+.idea
+node_modules/
+videos
+screenshots
