@@ -19,3 +19,5 @@ module.exports = defineConfig({
   },
 });
 // npx cypress run --record --key c19b0be2-5a46-4c91-a3da-8b2eceef3bd4
+
+require('@applitools/eyes-cypress')(module);

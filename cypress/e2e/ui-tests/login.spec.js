@@ -12,12 +12,19 @@ const invalidPassword = data.login.invalidPassword;
 describe('Automation Practice test', function (){
     before('Open website', function (){
         cy.visit(Cypress.env('url'))
+        cy.eyesOpen({
+            appName: 'Practice App',
+            testName: 'Login.Page.Test',
+        });
     });
 
     it("should verify that the user is on the page successfully.", function () {
         cy.url().should("include", "saucedemo");
         loginPage.loginLogo.should('be.visible');
         loginPage.botColumn.should('be.visible');
+        
+          cy.eyesCheckWindow({ tag: 'Login Page' });
+          cy.eyesClose();
     });
 
     it("should verify that user cannot login with empty email and password",()=> {
