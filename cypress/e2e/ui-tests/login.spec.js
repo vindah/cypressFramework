@@ -22,6 +22,8 @@ describe('Automation Practice test', function (){
     });
 
 
+
+    
     it("should verify that the user is on the page successfully.", function () {
         cy.url().should("include", "saucedemo");
         loginPage.loginLogo.should('be.visible');
@@ -77,11 +79,15 @@ describe('Automation Practice test', function (){
     });
 
     it("should verify that user can login with valid username and valid password",()=> {
-        loginPage.usernameField.clear().type(validUsername);
-        loginPage.passwordField.clear().type(validPassword);
-        loginPage.loginBtn.click();
+        // loginPage.usernameField.clear().type(validUsername);
+        // loginPage.passwordField.clear().type(validPassword);
+        // loginPage.loginBtn.click();
+        cy.loginUser(validUsername,validPassword);
         productPage.productPageTitle.should('be.visible').should('contain.text', 'Products');
     });
+
+
+    
 
 
 });
