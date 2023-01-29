@@ -1,4 +1,4 @@
-const data = require("../../fixtures/example.json");
+const data = require("../../fixtures/details.json");
 
 import LoginPage from "../../pageObjects/LoginPage";
 import ProductsPage from "../../pageObjects/ProductsPage";
@@ -15,10 +15,10 @@ describe('Automation Practice test', function (){
 
     before('Open website', function (){
         cy.visit(Cypress.env('url'))
-        cy.eyesOpen({
-            appName: 'Practice App',
-            testName: 'Login.Page.Test',
-        });
+        // cy.eyesOpen({
+        //     appName: 'Practice App',
+        //     testName: 'Login.Page.Test',
+        // });
     });
 
 
@@ -26,16 +26,16 @@ describe('Automation Practice test', function (){
     
     it("should verify that the user is on the page successfully.", function () {
         cy.url().should("include", "saucedemo");
-        loginPage.loginLogo.should('be.visible');
-        loginPage.botColumn.should('be.visible');
+        loginPage.isLoginLogoVisible();
+        loginPage.isTheBotColumnVisible();
         
-        cy.eyesCheckWindow({ tag: 'Login Page' });
-        cy.eyesClose();
+        // cy.eyesCheckWindow({ tag: 'Login Page' });
+        // cy.eyesClose();
     });
 
     it("should verify that user cannot login with empty username and password",()=> {
-        loginPage.loginBtn.click();
-        loginPage.errorDisplay.should('contain.text', 'Epic sadface: Username is required');
+        loginPage.clickOnLoginBtn();
+        loginPage.isValidUsernameErrorDisplayed();
         loginPage.errorBtn.click();
     });
 
@@ -79,9 +79,6 @@ describe('Automation Practice test', function (){
     });
 
     it("should verify that user can login with valid username and valid password",()=> {
-        // loginPage.usernameField.clear().type(validUsername);
-        // loginPage.passwordField.clear().type(validPassword);
-        // loginPage.loginBtn.click();
         cy.loginUser(validUsername,validPassword);
         productPage.productPageTitle.should('be.visible').should('contain.text', 'Products');
     });

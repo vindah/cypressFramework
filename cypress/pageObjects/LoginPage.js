@@ -1,4 +1,5 @@
 class LoginPage{
+
     get usernameField(){
         return cy.get('[data-test="username"]');
     }
@@ -26,5 +27,23 @@ class LoginPage{
     get errorBtn(){
         return cy.get('.error-button');
     }
+
+    isLoginLogoVisible(){
+        this.loginLogo.should('be.visible');
+    }
+
+    isTheBotColumnVisible(){
+        this.botColumn.should('be.visible');
+    }
+
+    clickOnLoginBtn(){
+        this.loginBtn.click();
+    }
+
+    isValidUsernameErrorDisplayed(){
+        this.errorDisplay.should('contain.text', 'Epic sadface: Username is required');
+    }
+
+
 }
 export default LoginPage;
